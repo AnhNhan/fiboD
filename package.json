@@ -1,0 +1,11 @@
+{
+	"name": "fibod",
+	"description": "Trying out several different Fibonacci implementations in the D probramming language.",
+	"homepage": "http://example.org",
+	"copyright": "Copyright © 2014, Anh Nhan Nguyen",
+	"authors": [
+		"Anh Nhan Nguyen"
+	],
+	"dependencies": {
+	}
+}
