@@ -2,8 +2,11 @@
 import common;
 import iterative;
 import recursive;
+import threaded;
 
 import std.stdio;
+
+alias FibonacciFunction = num function(in num);
 
 void main()
 {
@@ -20,14 +23,21 @@ void main()
         34,
         55,
         89,
+        144,
+        233,
+        377,
+        610,
+        987,
     ];
 
     auto perfTestNths = [3, 5, 10, 20];
 
-    num function(in num) [string] functions = [
+    FibonacciFunction[string] functions = [
         "fiboIterative" : &fiboIterative
       , "fiboRec" : &fiboRec
       , "fiboRecMemo": &fiboRecMemo
+      , "fiboRecDynamicMemo": &fiboRecDynamicMemo
+      //, "threadedFiboRec": &threadedFiboRec
     ];
 
     writeln("");
@@ -63,6 +73,7 @@ void cmp(V1, V2)(V1 exp, V2 act)
     {
         import std.conv : to;
         writeln("expectation failed. expected " ~ to!string(exp) ~ ", but got " ~ to!string(act));
+        return;
     }
 
     write(".");
